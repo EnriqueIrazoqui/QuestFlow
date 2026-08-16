@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: questflow-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: questflow
+      POSTGRES_USER: questflow
+      POSTGRES_PASSWORD: questflow
+
+    ports:
+      - "5430:5432"
+
+    volumes:
+      - questflow_postgres_data:/var/lib/postgresql
+
+volumes:
+  questflow_postgres_data:
